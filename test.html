@@ -1,0 +1,40 @@
+  <div data-role="page" id="index">
+        <div data-role="header" data-position="fixed">
+            <h1>计划列表</h1>
+        </div>
+        <div data-role="content">
+            <div data-role="collapsible">
+                <h4>进行中的计划</h4>
+                <ul data-role="listview">
+                  <li><a href="#"  onclick="changePage('plane_on')">Adam</a></li>
+                </ul>
+            </div>
+            <div data-role="collapsible">
+                <h4>待接收的计划</h4>
+                <ul data-role="listview">
+                   <li><a href="#" onclick="changePage('plane_ing')">Bill</a></li>
+                   <li><a href="#" onclick="changePage('plane_ing')">Bob</a></li>
+                </ul>
+            </div>
+            <div data-role="collapsible">
+                <h4>我的草稿</h4>
+                <ul data-role="listview">
+                  <li><a href="#" onclick="changePage('plane_draft')">Calvin</a></li>
+                </ul>
+            </div>
+            <div data-role="collapsible">
+                <h4 onclick="changePage('plane_done_degree')">已结束的计划</h4>
+         <!--        <h4 onclick="changePage('plane_done_degree')">已结束的计划</h4>
+                <ul data-role="listview">
+                  <li><a href="#" onclick="changePage('plane_done_degree')">Calvin</a></li>
+                </ul> -->
+            </div>
+        </div>
+        <div data-role="navbar" data-position="fixed">
+            <ul>
+                <li><a href="#" data-icon="grid"  onclick="changePage('my_friends')">我的好友</a></li>
+                <li><a href="#" data-icon="grid"  onclick="changePage('add_friend')">添加好友</a></li>
+                
+            </ul>
+        </div>
+    </div>
