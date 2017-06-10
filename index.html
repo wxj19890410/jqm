@@ -6,16 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/jquery.mobile-1.4.3.css"/>
     <script src="lib/jquery-1.11.1.js"></script>
-    <script src="lib/jquery.mobile-1.4.3.js"></script>
+   
 </head>
 
 <body>
    <div id="pageUrl">
+      <div data-role="header" data-position="fixed">
+            <h1>计划列表</h1>
+        </div>
+        <div data-role="content">
+            <div data-role="collapsible">
+                <h4>进行中的计划</h4>
+                <ul data-role="listview">
+                  <li><a href="#"  onclick="changeHash('plane_on')">Adam</a></li>
+                </ul>
+            </div>
+            <div data-role="collapsible">
+                <h4>待接收的计划</h4>
+                <ul data-role="listview">
+                   <li><a href="#" onclick="changeHash('plane_ing')">Bill</a></li>
+                   <li><a href="#" onclick="changeHash('plane_ing')">Bob</a></li>
+                </ul>
+            </div>
+            <div data-role="collapsible">
+                <h4>我的草稿</h4>
+                <ul data-role="listview">
+                  <li><a href="#" onclick="changeHash('plane_draft')">Calvin</a></li>
+                </ul>
+            </div>
+            <div data-role="collapsible">
+                <h4 onclick="changeHash('plane_done_degree')">已结束的计划</h4>
+            </div>
+        </div>
+        <div data-role="navbar" data-position="fixed">
+            <ul>
+                <li><a href="#" data-icon="grid"  onclick="changeHash('my_friends')">我的好友</a></li>
+                <li><a href="#" data-icon="grid"  onclick="changeHash('add_friend')">添加好友</a></li>
+                
+            </ul>
+        </div>
    </div>
-
 </body>
-
-
 <script>
         firstLogin();
         window.onhashchange = function()
@@ -23,7 +54,6 @@
                 
                 if(window.location.hash){
                     var hashVal=window.location.hash;
-
                     var url=hashVal.substring(1 , hashVal.length)+".html";
                     changePage(url);
                 }
@@ -49,11 +79,11 @@
         }
 
         function changePage(url){
-            console.log(url);
             $.get(url, function(result){
-                $("#pageUrl").html(result);
+                //$("#pageUrl").html(result);
             });
         }
 </script>
+ <script src="lib/jquery.mobile-1.4.3.js"></script>
 
 </html>
