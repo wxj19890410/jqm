@@ -10,31 +10,50 @@
 </head>
 
 <body>
-<!--     <a href="#home" >home</a>
-    <a href="#free" >free</a> -->
+   <div id="pageUrl">
+   </div>
 
 </body>
 
 
 <script>
+        firstLogin();
         window.onhashchange = function()
             {
-                alert(window.location.hash);
+                
+                if(window.location.hash){
+                    var hashVal=window.location.hash;
+
+                    var url=hashVal.substring(1 , hashVal.length)+".html";
+                    changePage(url);
+                }
             }
         $(function() {
-            //console.log(window.location.pathname);
-            if(window.location.hash){
-                alert(window.location.hash);
-            }else{
-                $.mobile.changePage ('main.html');
-            }
-           // changePage("main");
+
+            
         })
 
-        function changePage(url){
-            $.mobile.changePage (url+'.html');
+        function firstLogin(){
+            if(window.location.hash){
+                var hashVal=window.location.hash;
+                var url=hashVal.substring(1 , hashVal.length)+".html";
+                changePage(url);
+            }else{
+                window.location.hash="main";
+            }
         }
 
+
+        function changeHash(url){
+            window.location.hash=url;
+        }
+
+        function changePage(url){
+            console.log(url);
+            $.get(url, function(result){
+                $("#pageUrl").html(result);
+            });
+        }
 </script>
 
 </html>
